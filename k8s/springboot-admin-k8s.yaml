@@ -107,7 +107,7 @@ spec:
             - name: spring.security.user.name
               value: springbootadmin
             - name: spring.security.user.password
-              value: eroski
+              value: password
           ports:
             - containerPort: 8080
             - containerPort: 8081

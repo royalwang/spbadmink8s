@@ -1,0 +1,1 @@
+# Spring Boot Admin K8S
