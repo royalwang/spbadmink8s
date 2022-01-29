@@ -1,0 +1,20 @@
+---
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ .Release.Name }}-spbak8s-mem-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ .Release.Name }}-spbak8s
+  minReplicas: {{ .Values.mem.minreplicas }}
+  maxReplicas: {{ .Values.mem.maxreplicas }}
+  metrics:
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: {{ .Values.mem.avgutilization }}
+---

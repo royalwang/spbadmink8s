@@ -1,0 +1,59 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-spbak8s
+  labels:
+    app: {{ .Release.Name }}-spbak8s
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-spbak8s
+  replicas: {{ .Values.replicas }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-spbak8s
+    spec:
+      serviceAccountName: {{ .Values.serviceaccountname }}
+      imagePullSecrets:
+      - name: {{ .Values.imagepullsecret }}
+      containers: 
+      - name: spbak8s-container
+        image: {{ .Values.image }}
+        env:
+          - name: spring.cloud.kubernetes.discovery.service-labels.type
+            value: {{ .Values.labelactuator }}
+          - name: spring.security.user.name
+            value: {{ .Values.spbausername }}
+          - name: spring.security.user.password
+            value: {{ .Values.spbuserpassw }}
+		resources:
+          requests:
+            memory: {{ .Values.resources.requests.memory }}
+            cpu: {{ .Values.resources.requests.cpu }}
+          limits:
+            memory: {{ .Values.resources.limits.memory }}
+            cpu: {{ .Values.resources.limits.memory }}
+        ports:
+            - containerPort: 8080
+            - containerPort: 8081
+		imagePullPolicy: {{ .Values.imagepullpolicy }}
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8081
+          initialDelaySeconds:  {{ .Values.readinessProbe.initialDelaySeconds }}
+          periodSeconds:  {{ .Values.readinessProbe.periodSeconds }}
+          timeoutSeconds:  {{ .Values.readinessProbe.timeoutSeconds }}
+          failureThreshold:  {{ .Values.readinessProbe.failureThreshold }}
+          successThreshold:  {{ .Values.readinessProbe.successThreshold }}
+        livenessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8081
+          initialDelaySeconds:  {{ .Values.livenessProbe.initialDelaySeconds }}
+          periodSeconds:  {{ .Values.livenessProbe.periodSeconds }}
+          timeoutSeconds:  {{ .Values.livenessProbe.timeoutSeconds }}
+          failureThreshold:  {{ .Values.livenessProbe.failureThreshold }}
+          successThreshold:  {{ .Values.livenessProbe.successThreshold }}

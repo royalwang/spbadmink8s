@@ -1,0 +1,47 @@
+replicas: 1
+### Credenciales repositorio
+imagepullsecret: repo-cred
+### Imagenes 
+image: spring-boot-admin-k8s:0.0.0
+### Politica descarga de imagenes
+imagepullpolicy: IfNotPresent
+### Puertos
+ext_port: "8080"
+### Recursos 
+resources:
+  requests:
+    memory: "512Mi"
+    cpu: "500m"
+  limits:
+    memory: "1024Mi"
+    cpu: "1000m"
+### Test
+readinessProbe:
+  initialDelaySeconds: 5
+  periodSeconds: 10
+  timeoutSeconds: 2
+  failureThreshold: 1
+  successThreshold: 1
+livenessProbe:
+  initialDelaySeconds: 15
+  periodSeconds: 20
+  timeoutSeconds: 2
+  failureThreshold: 1
+  successThreshold: 1
+### Autoscaling
+mem:
+  minreplicas: 1
+  maxreplicas: 2
+  avgutilization: 80
+cpu:
+  minreplicas: 1
+  maxreplicas: 2
+  avgutilization: 80
+### Configurations SPBA
+serviceaccountname: "spbak8s-service-account"
+rolename: "spbak8s-role"
+rolebindingname: "spbak8s-role-binding"
+labelactuator: "actuator"
+spbausername: "springbootadmin"
+spbuserpassw: "password"
+
