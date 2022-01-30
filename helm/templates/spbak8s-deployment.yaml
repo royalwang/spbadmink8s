@@ -28,7 +28,7 @@ spec:
             value: {{ .Values.spbausername }}
           - name: spring.security.user.password
             value: {{ .Values.spbuserpassw }}
-		resources:
+        resources:
           requests:
             memory: {{ .Values.resources.requests.memory }}
             cpu: {{ .Values.resources.requests.cpu }}
@@ -38,7 +38,7 @@ spec:
         ports:
             - containerPort: 8080
             - containerPort: 8081
-		imagePullPolicy: {{ .Values.imagepullpolicy }}
+        imagePullPolicy: {{ .Values.imagepullpolicy }}
         readinessProbe:
           httpGet:
             path: /actuator/health
