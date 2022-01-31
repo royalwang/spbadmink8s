@@ -19,7 +19,7 @@ metadata:
   name: {{ .Release.Name }}-spbak8s-svc-act
   labels:
     app: {{ .Release.Name }}-spbak8s
-    type: actuator
+    type: {{ .Values.labelactuator }}
 spec:
   ports:
   - port: 8081
