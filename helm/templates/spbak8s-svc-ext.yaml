@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: spbak8s-svc-ext
+  name: {{ .Release.Name }}-spbak8s-svc-ext
   labels:
     app: {{ .Release.Name }}-spbak8s
 spec:
