@@ -7,8 +7,7 @@ Customization of SpringBoot Admin to be deployed in a K8S cluster.
 Deployment of a SpringBoot Admin in a K8S cluster to be able to monitor
 services external to the cluster such as services deployed in the cluster.
 
-It allows you to have all the replicas of a springboot service that you have configured registered.
-the SpringBoot Admin Client.
+It allows to have registered all the replicas of SpringBoot services that the Spring Boot Admin client has configured and active. 
 
 To do this, the service must expose the actuator endpoint through a service and must have
 a label with the name "type".
