@@ -29,7 +29,7 @@ spec:
           - name: spring.security.user.password
             value: {{ .Values.spbuserpassw }}
           - name: spring.cloud.kubernetes.discovery.all-namespaces
-            value: {{ .Values.allnamespaces}}
+            value: "{{ .Values.allnamespaces}}"
         resources:
           requests:
             memory: {{ .Values.resources.requests.memory }}
