@@ -108,6 +108,8 @@ spec:
               value: springbootadmin
             - name: spring.security.user.password
               value: password
+            - name: spring.cloud.kubernetes.discovery.all-namespaces
+              value: "true"
           ports:
             - containerPort: 8080
             - containerPort: 8081
