@@ -1,6 +1,6 @@
 HELP.md
 target/
-
+/bin/
 .classpath
 .project
 .settings

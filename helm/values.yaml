@@ -44,4 +44,5 @@ rolebindingname: "spbak8s-role-binding"
 labelactuator: "actuator"
 spbausername: "springbootadmin"
 spbuserpassw: "password"
+allnamespaces: "true"
 
