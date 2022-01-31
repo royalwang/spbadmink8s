@@ -11,7 +11,7 @@ spec:
     targetPort: 8080
     protocol: TCP
   selector:
-    app: {{ .Release.Name }}-demo
+    app: {{ .Release.Name }}-spbak8s
 ---
 apiVersion: v1
 kind: Service
