@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "hello-world.fullname" . }}
+  labels:
+    {{- include "hello-world.labels" . | nindent 4 }}
+    {{- if .Values.service.labelactuator }}
+    type: {{ .Values.service.labelactuator }}
+    {{- end }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+    - port: {{ .Values.service.actuator.port }}
+      targetPort: actuator
+      protocol: TCP
+      name: actuator
+  selector:
+    {{- include "hello-world.selectorLabels" . | nindent 4 }}
