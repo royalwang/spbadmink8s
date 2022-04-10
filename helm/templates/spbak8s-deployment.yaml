@@ -16,8 +16,10 @@ spec:
         app: {{ .Release.Name }}-spbak8s
     spec:
       serviceAccountName: {{ .Values.serviceaccountname }}
+      {{if .Values.imagepullsecret}}
       imagePullSecrets:
       - name: {{ .Values.imagepullsecret }}
+      {{end}}
       containers: 
       - name: spbak8s-container
         image: {{ .Values.image }}
@@ -29,7 +31,7 @@ spec:
           - name: spring.security.user.password
             value: {{ .Values.spbuserpassw }}
           - name: spring.cloud.kubernetes.discovery.all-namespaces
-            value: {{ .Values.allnamespaces }}
+            value: "{{ .Values.allnamespaces }}"
         resources:
           requests:
             memory: {{ .Values.resources.requests.memory }}
