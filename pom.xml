@@ -93,7 +93,7 @@
                     <images>
                         <image>
                             <name>
-                                drohwer/${project.name}:${maven.build.timestamp}__${project.parent.version}__${spring-cloud.version}__${spring-boot-admin.version}
+                                royalwang/${project.name}:${maven.build.timestamp}_${project.parent.version}_${spring-cloud.version}_${spring-boot-admin.version}
                             </name>
                             <build>
                                 <dockerFileDir>${project.basedir}</dockerFileDir>
