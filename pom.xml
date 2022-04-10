@@ -5,7 +5,11 @@
 
     <groupId>com.bittoruiz</groupId>
     <artifactId>spring-boot-admin-k8s</artifactId>
+    <packaging>pom</packaging>
     <version>0.0.0</version>
+    <modules>
+        <module>samples</module>
+    </modules>
     <name>spring-boot-admin-k8s</name>
 
     <parent>
