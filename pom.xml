@@ -93,7 +93,7 @@
                     <images>
                         <image>
                             <name>
-                                royalwang/${project.name}:${maven.build.timestamp}_${project.parent.version}_${spring-cloud.version}_${spring-boot-admin.version}
+                                royalwang/${project.name}:${project.parent.version}_${spring-cloud.version}_${spring-boot-admin.version}
                             </name>
                             <build>
 <!--                                <contextDir>${project.basedir}</contextDir>-->
