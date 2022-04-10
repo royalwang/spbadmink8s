@@ -96,10 +96,12 @@
                                 royalwang/${project.name}:${maven.build.timestamp}_${project.parent.version}_${spring-cloud.version}_${spring-boot-admin.version}
                             </name>
                             <build>
-                                <dockerFileDir>${project.basedir}</dockerFileDir>
+<!--                                <contextDir>${project.basedir}</contextDir>-->
+                                <dockerFile>${project.basedir}/Dockerfile-amd64</dockerFile>
                             </build>
                         </image>
                     </images>
+                    <verbose>true</verbose>
                 </configuration>
             </plugin>
         </plugins>
