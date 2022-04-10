@@ -1,8 +1,8 @@
 replicas: 1
-### Credenciales repositorio
-imagepullsecret: repo-cred
+### Credenciales repositorio repo-cred
+imagepullsecret:
 ### Imagenes 
-image: spring-boot-admin-k8s:0.0.0
+image: royalwang/spring-boot-admin-k8s:2.3.12.RELEASE_Hoxton.SR12_2.2.2
 ### Politica descarga de imagenes
 imagepullpolicy: IfNotPresent
 ### Puertos
@@ -10,8 +10,8 @@ ext_port: "8080"
 ### Recursos 
 resources:
   requests:
-    memory: "512Mi"
-    cpu: "500m"
+    memory: "256Mi"
+    cpu: "100m"
   limits:
     memory: "1024Mi"
     cpu: "1000m"
@@ -31,11 +31,11 @@ livenessProbe:
 ### Autoscaling
 mem:
   minreplicas: 1
-  maxreplicas: 2
+  maxreplicas: 1
   avgutilization: 80
 cpu:
   minreplicas: 1
-  maxreplicas: 2
+  maxreplicas: 1
   avgutilization: 80
 ### Configurations SPBA
 serviceaccountname: "spbak8s-service-account"
