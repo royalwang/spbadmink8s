@@ -40,8 +40,12 @@ spec:
             memory: {{ .Values.resources.limits.memory }}
             cpu: {{ .Values.resources.limits.memory }}
         ports:
-            - containerPort: 8080
-            - containerPort: 8081
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+        - name: actuator
+          containerPort: 8081
+          protocol: TCP
         imagePullPolicy: {{ .Values.imagepullpolicy }}
         readinessProbe:
           httpGet:
