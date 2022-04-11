@@ -14,3 +14,6 @@ install: ## K8s helm install
 
 upgrade: ## K8s helm upgrade
 	helm upgrade spbadmin -n spbadmin ./helm
+
+uninstall: ## K8s helm uninstall
+	helm uninstall spbadmin -n spbadmin
