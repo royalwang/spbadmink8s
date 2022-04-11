@@ -1,8 +1,8 @@
 ### STAGE 1: Build ###
-FROM adoptopenjdk/maven-openjdk11:latest AS build
+FROM royalwang/maven-build-jdk11:spring-boot-2.3.12 AS build
 #FROM royalwang/maven-openjdk:jdk-11-3.6.3 AS build
 RUN mkdir -p /root/.m2 \
-    && mkdir /root/.m2/repository
+    && mkdir -p /root/.m2/repository
 COPY settings.xml /root/.m2
 WORKDIR /tmp/
 COPY pom.xml ./
